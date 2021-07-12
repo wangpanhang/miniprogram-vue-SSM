@@ -1,0 +1,41 @@
+<view class="contain" wx:if="{{blob}}">
+  <view class="chooseimg">
+    <view>发布个动态吧！</view>
+    <view class="img" bindtap="chooseImage">
+      <image src="/images/camera.png"></image>
+    </view>
+  </view>
+  <view class="dynamic">
+    <view class="dynamic_top">
+      最新动态
+    </view>
+    <view wx:for="{{dynamicArrays}}" wx:key="index" class="box">
+      <view class="img"> 
+        <image src="{{item.imagePath}}" mode="scaleToFill"></image>
+      </view>
+      <view class="row_text">
+        {{item.content}}
+      </view>
+      <view class="row_info">
+        <view class="img">
+          <image src="{{item.userAvatarUrl}}"></image>
+          <view>{{item.userNickName}}</view>
+        </view>
+        <view class="row_time">{{item.upLoadDate}}</view>
+      </view>
+      <!--用户评论-->
+      <view class="comment" wx:for="{{item.reviewModelList}}" wx:key="index1" wx:for-item="itm">
+        {{itm.user_NickName}}：{{itm.content}}
+      </view>
+      <!--提交评论-->
+      <view class="row_comment">
+        <view class="row_comment_left">
+          <input placeholder="评论：" type="text" placeholder-class="row_comment_plachholder" bindinput="getReview" value="{{content}}"/>
+        </view>
+        <view class="row_comment_right">
+          <button type="primary" bindtap="submitReview" data-index="{{index}}" data-id="{{item.dynamic_Id}}">提交</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,60 @@
+<view class="container">
+	<view hidden="{{login?false:true}}" class="login">
+		<view class="img">
+			<view>
+				<image src="/images/account.png"></image>
+			</view>
+			<button type="primary" bindtap="getUserProfile">点击登录</button>
+		</view>
+	</view>
+	<view class="main" hidden="{{login?true:false}}">
+		<view class="box_top">
+			<view class="left_box width">
+				<view class="name">{{nickName}}_dglv</view>
+				<view class="text">2020加入</view>
+			</view>
+			<view class="right_box" bindtap="refreshImg">
+				<image src="{{imagePath}}" mode="aspectFill"></image>
+			</view>
+		</view>
+		<view class="box_bottom">
+			<view class="row_top">
+				<view class="{{blob?'red':''}}" bindtap="bindcut">收藏</view>
+				<view class="{{blob1?'red':''}}" bindtap="bindcut1">发布</view>
+			</view>
+			<!-- 用户收藏的信息 -->
+			<view wx:if="{{blob}}" class="top">
+				<view wx:for="{{foodArrays}}" wx:key="index" class="row_bottom" data-array="{{item}}" bindtap="navigateToFood">
+					<view class="img">
+						<image src="{{item.foodimage}}" mode="scaleToFill"></image>
+					</view>
+					<view class="info">
+						<view class="title">{{item.foodname}}</view>
+						<view class="auth_count">
+							<view class="font">{{item.foodcount}}人做过</view>
+							<view class="font">{{item.foodauthor}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<!-- 用户动态的信息 -->
+			<view wx:else class="top">
+				<view wx:for="{{dynamicArrays}}" wx:key="index" class="row_bottom">
+					<view class="img">
+						<image src="{{item.imagePath}}" mode="scaleToFill"></image>
+					</view>
+					<view class="row_text">
+						{{item.content}}
+					</view>
+					<view class="row_info">
+						<view class="img">
+							<image src="{{item.userAvatarUrl}}"></image>
+							<view>{{item.userNickName}}</view>
+						</view>
+						<view class="row_time">{{item.upLoadDate}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

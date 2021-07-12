@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="search">
+		<image src="/images/search.png" class="searchicon"></image>
+		<input type="text" confirm-type="search" class="input" placeholder="今日想吃点什么？" value="{{food}}" bindinput="getInputInfo" bindconfirm="searchfood" placeholder-class="placeholder"></input>
+	</view>
+	<swiper indicator-dots="{{true}}" autoplay current='0' indicator-active-color="#ffffff">
+		<block wx:for="{{[1,2,3]}}" wx:key="index">
+			<swiper-item class="swiper-item" data-array="{{foodArrays[item]}}" bindtap="navigateToFood">
+				<image src="{{foodArrays[item].foodimage}}" class="image" mode="aspectFill"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+  <view class="text">
+		唤醒你沉睡的味蕾，享受每一天生活
+	</view>
+	<view class="recommend">
+		- 今日推荐 -
+	</view>
+	<view class="food">
+		<view class="foodimage" wx:for="{{foodArrays}}" wx:key="index" data-array="{{item}}" bindtap="navigateToFood">
+			<view class="img">
+				<image src="{{item.foodimage}}" mode="aspectFill"></image>
+			</view>
+			<view class="foodtitle left">
+				<image src="/images/food/food.png"></image>
+        {{item.foodname}}
+			</view>
+			<view class="foodauthor left">
+        <view><image src="/images/food/chef.png"></image></view>
+				{{item.foodauthor}}
+			</view>
+			<view class="foodcount bottom left">
+        <view><image src="/images/food/count.png"></image></view>
+				{{item.foodcount}}人做过
+			</view>
+		</view>
+	</view>
+</view>

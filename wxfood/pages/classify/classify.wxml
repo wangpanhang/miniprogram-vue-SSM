@@ -1,0 +1,24 @@
+<view class="contain">
+  <scroll-view scroll-y="true" class="scroll-view">
+    <view wx:for="{{clsArrays}}" wx:key="index" class="food_class {{classid==item.clsid?'active':''}}" data-id="{{item.clsid}}" bindtap="getClsId">
+      {{item.clsname}}
+    </view>
+  </scroll-view>
+  <scroll-view scroll-y="true" class="scroll-view1">
+    <view class="food" wx:for="{{foodArrays}}" wx:key="index" data-array="{{item}}" bindtap="navigateToFood">
+      <view class="img">
+        <image src="{{item.foodimage}}" mode="scaleToFill"></image>
+      </view>
+      <view class="content">
+        <view class="content_list">
+          <view class="title">{{item.foodname}}</view>
+          <view class="dosing font">
+           {{item.foodmainingred}}
+          </view>
+          <view class="font">{{item.foodauthor}}</view>
+          <view class="font">{{item.foodcount}}人做过</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

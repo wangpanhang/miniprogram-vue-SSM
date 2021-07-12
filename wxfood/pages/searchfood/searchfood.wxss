@@ -1,0 +1,103 @@
+/* pages/searchfood/searchfood.wxss */
+.contain{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search{
+  width:100%;
+  height:100rpx;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx grey solid;
+  margin-bottom:20rpx;
+  /* background-color:#e2e2e2; */
+}
+
+.search>view{
+  width:50%;
+  height:60rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border:1rpx grey solid;
+  border-radius: 10rpx;
+  background-color:white;
+}
+
+.search>view>image{
+  width:30rpx;
+  height:30rpx;
+  margin-right:2%;
+}
+
+.search>view>input{
+  width:300rpx;
+  height:60rpx;
+  font-size:20rpx;
+  line-height: 60rpx;
+}
+
+.food{
+  margin-top:20rpx;
+  width:95%;
+  height:220rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.img{
+  width:35%;
+  height:90%;
+}
+
+.img>image{
+  width:100%;
+  height:100%;
+  border-radius: 10rpx;
+}
+
+.content{
+  width:61%;
+  height:100%;
+  margin-left:4%;
+  border-bottom: 1rpx rgb(228, 228, 228) solid;
+  display: flex;
+  align-items: center;
+}
+
+.content_list{
+  width:100%;
+  height:90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* background-color:red; */
+}
+
+.title{
+  margin-top:13rpx;
+  font-size:38rpx;
+  color:black;
+  margin-bottom:22rpx;
+  font-weight: bold;
+}
+
+.dosing{
+  white-space: nowrap;
+  overflow: hidden;
+	text-overflow:ellipsis;
+}
+
+.font{
+  margin-bottom:5rpx;
+  font-size:23rpx;
+  color:grey;
+}

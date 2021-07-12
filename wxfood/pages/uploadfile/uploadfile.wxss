@@ -1,0 +1,28 @@
+/* pages/uploadfile/uploadfile.wxss */
+.contain{
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form{
+  margin-top:20rpx;
+  width:90%;
+}
+
+.textarea{
+  width:100%;
+  height:155rpx;
+  /* background-color:red; */
+}
+
+image{
+  margin-top:20rpx;
+  width:200rpx;
+  height:200rpx;
+}
+
+button{
+  margin-top:50rpx;
+}

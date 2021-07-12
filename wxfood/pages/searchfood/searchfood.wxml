@@ -1,0 +1,23 @@
+<view class="contain">
+  <view class="search">
+    <view>
+      <image src="/images/search.png"></image>
+      <input type="text" confirm-type="search" class="input"  value="{{food}}" bindinput="getInputInfo" bindconfirm="searchfood"></input>
+    </view>
+  </view>
+  <view class="food" wx:for="{{foodArrays}}" wx:key="index" data-array="{{item}}" bindtap="navigateToFood">
+      <view class="img">
+        <image src="{{item.foodimage}}" mode="scaleToFill"></image>
+      </view>
+      <view class="content">
+        <view class="content_list">
+          <view class="title">{{item.foodname}}</view>
+          <view class="dosing font">
+           {{item.foodmainingred}}
+          </view>
+          <view class="font">{{item.foodauthor}}</view>
+          <view class="font">{{item.foodcount}}人做过</view>
+        </view>
+      </view>
+  </view>
+</view>

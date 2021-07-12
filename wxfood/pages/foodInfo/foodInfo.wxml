@@ -1,0 +1,38 @@
+<view class="contain">
+  <view class="iter">
+    <image class="image" src="{{foodimage}}" mode="aspectFill"></image>
+  </view>
+  <view class="contain1">
+    <view class="title">
+      {{foodArray.foodname}}
+      <view class="collect">
+        <view class="img" bindtap="collectfood">
+          <image src="/images/collect/{{collect?'love1.png':'love.png'}}" mode="aspectFill"></image>
+        </view>
+        <view class="collect_text">{{collect?'已收藏':'收藏'}}</view>
+      </view>
+    </view>
+    <view class="author_count">作者：{{foodArray.foodauthor}} · {{foodArray.foodcount}}人做过</view>
+  </view>
+  <view class="ingredient">
+    <view class="ingred">
+      <view class="text">主料:</view>
+      <view class="food_material">{{foodArray.foodmainingred}}</view>
+    </view>
+    <view class="ingred">
+      <view class="text">辅料:</view>
+      <view class="food_material">{{foodArray.foodingred}}</view>
+    </view>
+    <view class="ingred">
+      <view class="text">配料:</view>
+      <view class="food_material">{{foodArray.fooddosing}}</view>
+    </view>
+  </view>
+  <view class="method" wx:for="{{foodStep}}" wx:key="index">
+    <view class="step">步骤{{index+1}}</view>
+    <view class="img1">
+        <image class="image" src="{{item.foodimage}}" mode="aspectFill"></image>
+    </view>
+    <view class="method1">{{item.foodpractice}}</view>
+  </view>
+</view>

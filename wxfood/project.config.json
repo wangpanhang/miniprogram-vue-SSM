@@ -1,0 +1,110 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "useMultiFrameRuntime": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "useApiHook": true,
+    "useApiHostProcess": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.16.0",
+  "appid": "wxd4c7d24c31ff19db",
+  "projectname": "food",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/classify/classify",
+          "pathName": "pages/classify/classify",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/foodInfo/foodInfo",
+          "pathName": "pages/foodInfo/foodInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/searchfood/searchfood",
+          "pathName": "pages/searchfood/searchfood",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/issue/issue",
+          "pathName": "pages/issue/issue",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/uploadfile/uploadfile",
+          "pathName": "pages/uploadfile/uploadfile",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<view class="contain">
+  <form bindsubmit="uploadImg" class="form">
+    <textarea class="textarea" placeholder="这一刻的想法..." value="{{value}}" bindinput="getvalue"></textarea>
+    <image src="{{imagePath}}" ></image>
+    <button form-type="submit" type="primary">发表</button>
+  </form>
+</view>
