@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wxfoods.mapper.wxUserDao">
+
+    <select id="findWxUser" resultType="int" parameterType="String">
+        select user_Id from wxUser  where user_OpenId = #{openId}
+    </select>
+
+    <insert id="createWxUser" parameterType="com.wxfoods.entity.wxUser">
+        insert into wxUser(user_OpenId,user_NickName,user_AvatarUrl) values (#{user_OpenId},#{user_NickName},#{user_AvatarUrl})
+    </insert>
+
+    <select id="getWxUser" resultType="com.wxfoods.entity.wxUser" parameterType="String">
+        select user_Id,user_NickName,user_AvatarUrl from wxUser where user_OpenId = #{openId}
+    </select>
+
+    <update id="refreshWxUser" parameterType="com.wxfoods.entity.wxUser">
+        update wxuser set user_NickName=#{user_NickName},user_AvatarUrl=#{user_AvatarUrl} where user_Id=#{user_Id}
+    </update>
+
+</mapper>

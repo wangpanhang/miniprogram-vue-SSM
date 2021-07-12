@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wxfoods.mapper.userDynamicDao">
+    <select id="getUserDynamic" resultType="com.wxfoods.entity.userDynamicModel" parameterType="java.util.Map">
+        select dynamic_Id,a.user_Id,user_NickName,imagePath,content,upLoadDate from userdynamic a,wxuser b where a.user_Id = b.user_Id limit #{currpage},#{pagesize}
+    </select>
+
+    <select id="getDynamicCount" resultType="int">
+        select count(*) from userdynamic
+    </select>
+
+    <delete id="delUserDynamic" parameterType="int">
+        delete from userdynamic where dynamic_Id=#{dynamicId}
+    </delete>
+
+    <delete id="delUserReview" parameterType="int">
+        delete from userreview where dynamic_Id = #{dynamicId}
+    </delete>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wxfoods.mapper.userReviewDao">
+    <select id="getUserReview" resultType="com.wxfoods.entity.userReviewModel" parameterType="java.util.Map">
+        select review_Id,a.user_NickName as reviewer,a.content as review_Content,a.reviewDate as review_Time,c.user_NickName as dynamicer,b.imagePath as image_Path,b.content as dynamic_Content,b.upLoadDate as dynamic_Time from userreview a,userdynamic b,wxuser c where a.dynamic_Id = b.dynamic_Id and a.user_Id = c.user_Id and b.user_Id = c.user_Id limit #{currpage},${pagesize}
+    </select>
+
+    <select id="getReviewCount" resultType="int">
+        select count(*) from userreview
+    </select>
+
+    <delete id="delUserReview" parameterType="int">
+        delete from userreview where review_Id=#{reviewId}
+    </delete>
+</mapper>

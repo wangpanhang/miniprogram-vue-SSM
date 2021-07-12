@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wxfoods.mapper.dynamicDao">
+    <resultMap id="dynamicResultMap" type="com.wxfoods.entity.userDynamicInfoModel">
+        <id property="dynamic_Id" column="dynamic_Id" javaType="java.lang.Integer"/>
+        <result property="user_NickName" column="user_NickName"/>
+        <result property="user_AvatarUrl" column="user_AvatarUrl"/>
+        <result property="imagePath" column="imagePath"/>
+        <result property="content" column="content"/>
+        <result property="upLoadDate" column="upLoadDate"/>
+        <collection property="reviewModelList" ofType="com.wxfoods.entity.reviewModel">
+            <result property="user_NickName" column="uname"/>
+            <result property="content" column="cont"/>
+        </collection>
+    </resultMap>
+    
+    <insert id="insertUserDynamic" parameterType="com.wxfoods.entity.userDynamicModel">
+        insert into userdynamic(user_Id,imagePath,content,upLoadDate) values(#{user_Id},#{imagePath},#{content},#{upLoadDate})
+    </insert>
+
+    <select id="getDynamicDao" resultMap="dynamicResultMap">
+        select a.dynamic_Id,b.user_NickName,user_AvatarUrl,a.imagePath,a.content,a.upLoadDate,c.user_NickName as uname,c.content as cont
+        from userdynamic a LEFT JOIN wxUser b on a.user_Id = b.user_Id LEFT JOIN userReview c on a.dynamic_Id = c.dynamic_Id
+    </select>
+
+    <select id="getSelfDynamicDao" resultType="com.wxfoods.entity.userDynamicInfoModel" parameterType="java.lang.Integer">
+        select dynamic_Id,user_NickName,user_AvatarUrl,imagePath,content,upLoadDate from userdynamic,wxUser
+        <where>
+            wxUser.user_Id = userdynamic.user_Id and wxUser.user_Id=#{user_Id}
+        </where>
+    </select>
+</mapper>

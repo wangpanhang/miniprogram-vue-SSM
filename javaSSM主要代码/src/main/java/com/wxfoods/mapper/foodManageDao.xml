@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wxfoods.mapper.foodManageDao">
+    <insert id="foodInsert" parameterType="com.wxfoods.entity.foodInfoModel">
+        insert into food(food_Name,food_Image,food_MainIngred,food_Ingred,food_Dosing,food_Author,food_Count,cls_Id) values(#{food_Name},#{food_Image},#{food_MainIngred},#{food_Ingred},#{food_Dosing},#{food_Author},#{food_Count},#{food_ClsId})
+    </insert>
+
+    <select id="getFoodList" parameterType="java.util.Map" resultType="com.wxfoods.entity.foodModel">
+        select food_Id,food_Name,food_Image,food_MainIngred,food_Ingred,food_Dosing,food_Author,cls_Name from food,classify where food.cls_Id = classify.cls_Id limit #{currpage},#{pagesize}
+    </select>
+
+    <select id="getFoodCount" resultType="int">
+        select count(*) from food
+    </select>
+
+    <select id="getSearchFood" resultType="com.wxfoods.entity.foodModel" parameterType="String">
+        select food_Id,food_Name,food_Image,food_MainIngred,food_Ingred,food_Dosing,food_Author,cls_Name from food,classify where food.cls_Id = classify.cls_Id  and food_Name Like "%"#{query}"%"
+    </select>
+
+    <select id="getFoodInfo" resultType="com.wxfoods.entity.foodModel" parameterType="int">
+        select food_Id,food_Name,food_Image,food_MainIngred,food_Ingred,food_Dosing,food_Author,cls_Id from food where food_Id = #{foodId}
+    </select>
+
+    <update id="alertFoodInfo" parameterType="com.wxfoods.entity.foodModel">
+        update food set food_Name=#{food_Name},food_MainIngred=#{food_MainIngred},food_Ingred=#{food_Ingred},food_Dosing=#{food_Dosing},food_Author=#{food_Author},cls_Id=#{cls_Id} where food_Id=#{food_Id}
+    </update>
+
+    <delete id="delFoodInfo" parameterType="int">
+        delete from food where food_Id = #{foodId}
+    </delete>
+</mapper>

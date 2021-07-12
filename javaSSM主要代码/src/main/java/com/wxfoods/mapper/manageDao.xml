@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wxfoods.mapper.manageDao">
+    <resultMap id="manageMap" type="com.wxfoods.entity.oneManageModel">
+        <id property="m_Id" column="m_Id" javaType="java.lang.Integer"/>
+        <result property="m_Name" column="m_Name"/>
+        <collection property="twoManageModelList" ofType="com.wxfoods.entity.twoManageModel">
+            <result property="id" column="id"/>
+            <result property="m_Name" column="name"/>
+            <result property="paths" column="paths"/>
+        </collection>
+    </resultMap>
+
+    <select id="getManageInfo" resultMap="manageMap">
+        select a.m_Id,a.m_Name,b.id,b.m_Name as name,b.paths from onemanage a left join twomanage b on a.m_Id = b.m_Id
+    </select>
+
+</mapper>

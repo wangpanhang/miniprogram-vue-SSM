@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wxfoods.mapper.reviewDao">
+
+    <insert id="insertReview" parameterType="com.wxfoods.entity.reviewModel">
+        insert into userReview(dynamic_Id,user_Id,user_NickName,content,reviewDate) values(#{dynamic_Id},#{user_Id},#{user_NickName},#{content},#{reviewDate})
+    </insert>
+
+    <select id="getReview" resultType="com.wxfoods.entity.reviewModel" parameterType="java.lang.Integer">
+        select * from userreview where dynamic_Id = #{dynamin_Id}
+    </select>
+</mapper>

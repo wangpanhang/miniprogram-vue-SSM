@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wxfoods.mapper.foodDao">
+
+    <select id="getFoodList" resultType="com.wxfoods.entity.foodInfoModel" parameterType="int">
+        select food_Id,food_Name,food_Image,food_MainIngred,food_Ingred,food_Dosing,food_Author,food_Count from food where cls_Id = #{id}
+    </select>
+
+    <select id="getFoodStep" resultType="com.wxfoods.entity.foodStepModel" parameterType="int">
+        select food_Images,food_Practice from foodimage where food_Id = #{id}
+    </select>
+
+    <select id="getSearchList" resultType="com.wxfoods.entity.foodInfoModel" parameterType="String">
+        select food_Id,food_Name,food_Image,food_MainIngred,food_Ingred,food_Dosing,food_Author,food_Count from food where food_Name Like "%"#{food}"%"
+    </select>
+
+    <select id="getUserCollectList" resultType="com.wxfoods.entity.foodInfoModel" parameterType="int">
+        select food.food_Id,food_Name,food_Image,food_MainIngred,food_Ingred,food_Dosing,food_Author,food_Count from food,usercollect where food.food_Id=usercollect.food_Id and user_Id=#{user_Id}
+    </select>
+</mapper>
